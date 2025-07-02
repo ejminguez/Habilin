@@ -1,5 +1,5 @@
-import stamp from "../assets/stamp.svg";
-import navbar from "../assets/navbar-elements.svg";
+import stamp from "../assets/pictures/stamp.svg";
+import navbar from "../assets/pictures/navbar-elements.svg";
 import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
@@ -12,7 +12,7 @@ const Navbar = () => {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
         }}
-        className="w-20 h-20 flex justify-center items-center mx-auto -top-10 relative"
+        className="w-20 h-20 flex justify-center items-center mx-auto -top-10 relative cursor-pointer hover:scale-110 transition-all duration-500"
       >
         <Link to="/" className="font-reenie text-center text-white">
           habilin
