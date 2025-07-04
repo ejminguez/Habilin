@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import type { Letter } from "@/types";
-import paperTexture from "@/assets/pictures/paper-texture.jpg";
+import paperTexture from "@/assets/pictures/paper-texture.webp";
 
 const Letters = () => {
   const [loading, setLoading] = useState(false);

@@ -1,4 +1,4 @@
-import flower4 from "../assets/pictures/flower-4.png";
+import flower4 from "@/assets/pictures/flower-4.webp";
 
 const Footer = () => {
   return (
