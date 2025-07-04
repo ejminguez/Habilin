@@ -2,7 +2,7 @@ import pic from "@/assets/sample_data/pic-1.jpeg";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
-import flower3 from "@/assets/pictures/flower-3.png";
+import flower3 from "@/assets/pictures/flower-3.webp";
 
 const Memories = () => {
   return (

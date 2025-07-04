@@ -1,4 +1,4 @@
-import flower4 from "@/assets/pictures/flower-4-medium.svg";
+import flower4 from "@/assets/pictures/flower-4-medium.webp";
 
 const Greetings = () => {
   return (
@@ -15,11 +15,15 @@ const Greetings = () => {
         src={flower4}
         loading="lazy"
         className="absolute top-[70%] right-[5%] animate-[spin_50s_linear_infinite]"
+        width={50}
+        height={50}
       />
       <img
         src={flower4}
         loading="lazy"
-        className="absolute top-0 left-0 scale-[150%] animate-[spin_50s_linear_infinite]"
+        className="absolute top-0 left-0  animate-[spin_50s_linear_infinite]"
+        width={70}
+        height={70}
       />
     </section>
   );

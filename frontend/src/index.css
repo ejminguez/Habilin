@@ -60,11 +60,17 @@
 }
 
 body {
-  background-image: url("./assets/pictures/paper-texture.jpg");
-  background-size: 300%;
+  background-image: url("./assets/pictures/paper-texture.webp");
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-attachment: fixed;
+  }
 }
 
 @theme inline {
