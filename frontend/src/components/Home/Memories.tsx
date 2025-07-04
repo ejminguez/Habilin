@@ -2,10 +2,11 @@ import pic from "@/assets/sample_data/pic-1.jpeg";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
+import flower3 from "@/assets/pictures/flower-3.png";
 
 const Memories = () => {
   return (
-    <section className="p-4">
+    <section className="p-4 relative">
       <h1 className="text-[3rem]  font-reenie">alaala</h1>
 
       <div className="max-w-sm mx-auto">
@@ -38,7 +39,11 @@ const Memories = () => {
       </div>
 
       {/* BACKGROUND FLOWER */}
-      <div />
+      <img
+        src={flower3}
+        loading="lazy"
+        className="absolute top-[10%] left-[40%] scale-x-[-1] scale-120 -rotate-6"
+      />
     </section>
   );
 };
