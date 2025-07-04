@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navigation/Navbar";
 import ScrollToTopOnRouteChange from "./wrapper/ScrollToTopOnRouteChange.tsx";
 import Footer from "./components/Footer.tsx";
 
