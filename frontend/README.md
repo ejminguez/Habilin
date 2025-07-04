@@ -1,105 +1,69 @@
-# Habilin Frontend
+# React + TypeScript + Vite
 
-The frontend application for the Habilin project, built with React, TypeScript, and Vite.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Tech Stack
+Currently, two official plugins are available:
 
-- **React 19** - Modern React with latest features
-- **TypeScript** - Type-safe JavaScript
-- **Vite** - Fast build tool and dev server
-- **Tailwind CSS** - Utility-first CSS framework
-- **React Router DOM** - Client-side routing
-- **Lucide React** - Beautiful icon library
-- **SWC** - Fast TypeScript/JavaScript compiler
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Project Structure
+## Expanding the ESLint configuration
 
-```
-src/
-├── components/     # Reusable UI components
-├── pages/         # Page components
-├── router/        # Routing configuration
-├── lib/           # Utility libraries
-├── utils/         # Helper functions
-├── assets/        # Static assets
-├── wrapper/       # Layout wrapper components
-├── App.tsx        # Main application component
-├── main.tsx       # Application entry point
-└── index.css      # Global styles
-```
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## Getting Started
+```js
+export default tseslint.config([
+  globalIgnores(["dist"]),
+  {
+    files: ["**/*.{ts,tsx}"],
+    extends: [
+      // Other configs...
 
-### Prerequisites
+      // Remove tseslint.configs.recommended and replace with this
+      ...tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      ...tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      ...tseslint.configs.stylisticTypeChecked,
 
-- Node.js (version 18 or higher)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository
-2. Navigate to the frontend directory
-3. Install dependencies:
-
-```bash
-npm install
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+]);
 ```
 
-### Development
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-Start the development server:
+```js
+// eslint.config.js
+import reactX from "eslint-plugin-react-x";
+import reactDom from "eslint-plugin-react-dom";
 
-```bash
-npm run dev
+export default tseslint.config([
+  globalIgnores(["dist"]),
+  {
+    files: ["**/*.{ts,tsx}"],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs["recommended-typescript"],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+]);
 ```
-
-The application will be available at `http://localhost:5173`
-
-## Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-- `npm run format` - Format code with Prettier
-- `npm run format:check` - Check code formatting
-
-## Features
-
-- Modern React 19 with TypeScript
-- Responsive design with Tailwind CSS
-- Client-side routing with React Router
-- Component-based architecture
-- ESLint and Prettier for code quality
-- Fast development with Vite and SWC
-- Optimized production builds
-
-## Development Guidelines
-
-### Code Style
-
-This project uses ESLint and Prettier for consistent code formatting. Run the following commands to maintain code quality:
-
-```bash
-# Check and fix linting issues
-npm run lint
-
-# Format code
-npm run format
-```
-
-### TypeScript
-
-The project is fully typed with TypeScript. Make sure to:
-
-- Add proper type annotations
-- Avoid using `any` type
-- Leverage TypeScript's strict mode features
-
-## Building for Production
-
-```bash
-npm run build
-```
-
-The built files will be in the `dist` directory, ready for deployment.

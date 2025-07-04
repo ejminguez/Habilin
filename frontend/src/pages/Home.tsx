@@ -1,9 +1,6 @@
-import Hero from "../components/Home/Hero";
-import Greetings from "@/components/Home/Greetings";
-import MusicPlayer from "@/components/Home/MusicPlayer";
-import Memories from "@/components/Home/Memories";
-import HomeBucketList from "@/components/Home/HomeBucketList";
-import Letters from "@/components/Home/Letters";
+import Hero from "../components/Hero";
+import Greetings from "@/components/Greetings";
+import MusicPlayer from "@/components/MusicPlayer";
 
 const Home = () => {
   return (
@@ -11,9 +8,6 @@ const Home = () => {
       <Hero />
       <Greetings />
       <MusicPlayer />
-      <Memories />
-      <HomeBucketList />
-      <Letters />
     </main>
   );
 };

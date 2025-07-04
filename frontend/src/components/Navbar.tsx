@@ -1,14 +1,10 @@
-import stamp from "@/assets/pictures/stamp.svg";
-import navbar from "@/assets/pictures/navbar-elements.svg";
+import stamp from "../assets/pictures/stamp.svg";
+import navbar from "../assets/pictures/navbar-elements.svg";
 import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="bg-transparent text-white sticky top-0 z-50 h-24">
-      <img
-        src={navbar}
-        loading="eager"
-        className="w-full xl:w-[30%] mx-auto hover:scale-115 transition-all duration-300"
-      />
+      <img src={navbar} loading="eager" width="100%" />
       <div
         style={{
           backgroundImage: `url(${stamp})`,
