@@ -7,7 +7,7 @@ const Navbar = () => {
       <img
         src={navbar}
         loading="eager"
-        className="w-[100%] xl:w-[30%] mx-auto hover:scale-115 transition-all duration-300"
+        className="w-full xl:w-[30%] mx-auto hover:scale-115 transition-all duration-300"
       />
       <div
         style={{
