@@ -1,5 +1,5 @@
-import stamp from "../assets/pictures/stamp.svg";
-import navbar from "../assets/pictures/navbar-elements.svg";
+import stamp from "@/assets/pictures/stamp.webp";
+import navbar from "@/assets/pictures/navbar-elements.webp";
 import { Link } from "react-router-dom";
 const Navbar = () => {
   return (

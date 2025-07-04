@@ -5,6 +5,7 @@ import ErrorNotFound from "@/pages/ErrorNotFound.tsx";
 import Gallery from "@/pages/Gallery.tsx";
 import Letters from "@/pages/Letters.tsx";
 import Playlist from "@/pages/Playlist";
+import Pangarap from "@/pages/Pangarap";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: "/himig",
         element: <Playlist />,
+      },
+      {
+        path: "/pangarap",
+        element: <Pangarap />,
       },
     ],
   },

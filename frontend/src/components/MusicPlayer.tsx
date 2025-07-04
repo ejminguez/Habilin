@@ -1,7 +1,7 @@
-import vinyl from "@/assets/pictures/vinyl.png";
+import vinyl from "@/assets/pictures/vinyl.webp";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
-import flower3 from "@/assets/pictures/flower-3.png";
+import flower3 from "@/assets/pictures/flower-3.webp";
 
 const MusicPlayer = () => {
   return (
