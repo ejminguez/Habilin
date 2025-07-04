@@ -14,12 +14,12 @@ const Greetings = () => {
       <img
         src={flower4}
         loading="lazy"
-        className="absolute top-[70%] right-[5%] animate-[spin_50s_linear_infinite]"
+        className="absolute top-[70%] right-[5%]"
       />
       <img
         src={flower4}
         loading="lazy"
-        className="absolute top-0 left-0 scale-[150%] animate-[spin_50s_linear_infinite]"
+        className="absolute top-0 left-0 scale-[150%]"
       />
     </section>
   );
