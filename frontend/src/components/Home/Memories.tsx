@@ -1,4 +1,4 @@
-import pic from "@/assets/sample_data/pic-1.jpeg";
+import pic from "@/assets/pictures/pic-1.jpeg";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
