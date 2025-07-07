@@ -30,7 +30,7 @@ export const useGlobalAudioManager = () => {
       console.log("Initializing global audio element");
       isInitialized = true;
       globalAudioElement = new Audio();
-      
+
       // Prevent multiple audio elements from playing
       globalAudioElement.preload = "metadata";
 
@@ -48,12 +48,12 @@ export const useGlobalAudioManager = () => {
       globalAudioElement.addEventListener("ended", () => {
         console.log("Audio ended, moving to next song");
         setIsPlaying(false);
-        
+
         // Get current autoPlay setting from store
         const currentAutoPlay = useAudioStore.getState().autoPlay;
         shouldAutoPlayRef.current = currentAutoPlay;
         console.log("Auto-play enabled for next song:", currentAutoPlay);
-        
+
         // Move to next song
         nextSong();
       });
@@ -69,16 +69,18 @@ export const useGlobalAudioManager = () => {
         if (!audioInitialized) {
           setAudioInitialized(true);
         }
-        
+
         // Auto-play if requested
         if (shouldAutoPlayRef.current) {
           console.log("Auto-playing new song");
-          handlePlay().then(() => {
-            shouldAutoPlayRef.current = false;
-          }).catch((error) => {
-            console.error("Auto-play failed:", error);
-            shouldAutoPlayRef.current = false;
-          });
+          handlePlay()
+            .then(() => {
+              shouldAutoPlayRef.current = false;
+            })
+            .catch((error) => {
+              console.error("Auto-play failed:", error);
+              shouldAutoPlayRef.current = false;
+            });
         }
       });
 
@@ -194,7 +196,7 @@ export const useGlobalAudioManager = () => {
       }
     } catch (error) {
       playPromiseRef.current = null;
-      if (error.name !== 'AbortError') {
+      if (error.name !== "AbortError") {
         console.error("Error playing audio:", error);
         setIsPlaying(false);
       }
@@ -224,7 +226,7 @@ export const useGlobalAudioManager = () => {
         handlePause();
       } else {
         console.log("Playing audio");
-        
+
         // Make sure we have the right source
         const expectedSrc = `${window.location.origin}${currentSong.song_url}`;
         if (globalAudioElement.src !== expectedSrc) {
@@ -235,7 +237,7 @@ export const useGlobalAudioManager = () => {
         await handlePlay();
       }
     } catch (error) {
-      if (error.name !== 'AbortError') {
+      if (error.name !== "AbortError") {
         console.error("Error toggling audio playback:", error);
         setIsPlaying(false);
       }

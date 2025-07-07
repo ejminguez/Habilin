@@ -64,8 +64,13 @@ export const useAudioManager = () => {
     const currentSongUrl = currentSong?.song_url;
 
     if (previousSongRef.current !== currentSongUrl) {
-      console.log("Song changed from", previousSongRef.current, "to", currentSongUrl);
-      
+      console.log(
+        "Song changed from",
+        previousSongRef.current,
+        "to",
+        currentSongUrl,
+      );
+
       // Stop previous song if it exists
       if (previousSongRef.current && sound) {
         stop();
@@ -91,7 +96,7 @@ export const useAudioManager = () => {
         console.log("Starting audio playback");
         // This will initialize the audio context on first user interaction
         play();
-        
+
         if (!audioInitialized) {
           setAudioInitialized(true);
         }

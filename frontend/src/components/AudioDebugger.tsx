@@ -2,7 +2,8 @@ import { useAudioStore } from "@/store/useAudioStore";
 import { useState } from "react";
 
 const AudioDebugger = () => {
-  const { songs, currentSong, autoPlay, setAutoPlay, nextSong } = useAudioStore();
+  const { songs, currentSong, autoPlay, setAutoPlay, nextSong } =
+    useAudioStore();
   const [testResults, setTestResults] = useState<Record<string, any>>({});
 
   const testAllAudioFiles = async () => {
@@ -53,7 +54,7 @@ const AudioDebugger = () => {
 
       // Test with GET request (partial)
       const getResponse = await fetch(fullUrl, {
-        headers: { Range: "bytes=0-1023" }
+        headers: { Range: "bytes=0-1023" },
       });
       console.log("GET response:", {
         ok: getResponse.ok,
@@ -72,7 +73,6 @@ const AudioDebugger = () => {
         testAudio.remove();
       });
       testAudio.src = fullUrl;
-
     } catch (error) {
       console.error("Error testing current song:", error);
     }
@@ -81,13 +81,13 @@ const AudioDebugger = () => {
   const testAutoPlay = () => {
     console.log("Testing auto-play functionality");
     console.log("Current autoPlay setting:", autoPlay);
-    
+
     // Enable autoplay if not already enabled
     if (!autoPlay) {
       setAutoPlay(true);
       console.log("Enabled autoPlay");
     }
-    
+
     // Move to next song to test autoplay
     console.log("Moving to next song to test autoplay...");
     nextSong();
@@ -96,7 +96,7 @@ const AudioDebugger = () => {
   return (
     <div className="bg-gray-100 p-4 rounded-lg">
       <h3 className="font-bold mb-4">Audio Debugger</h3>
-      
+
       <div className="space-y-2 mb-4">
         <button
           onClick={testCurrentSong}
@@ -104,7 +104,7 @@ const AudioDebugger = () => {
         >
           Test Current Song
         </button>
-        
+
         <button
           onClick={testAllAudioFiles}
           className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 ml-2"
@@ -122,7 +122,10 @@ const AudioDebugger = () => {
 
       <div className="mb-4 p-2 bg-yellow-100 rounded">
         <div className="text-sm">
-          <div><strong>Auto-Play:</strong> {autoPlay ? '✅ Enabled' : '❌ Disabled'}</div>
+          <div>
+            <strong>Auto-Play:</strong>{" "}
+            {autoPlay ? "✅ Enabled" : "❌ Disabled"}
+          </div>
           <button
             onClick={() => setAutoPlay(!autoPlay)}
             className="mt-1 px-2 py-1 bg-yellow-500 text-white rounded text-xs"
@@ -137,15 +140,20 @@ const AudioDebugger = () => {
           <h4 className="font-semibold mb-2">Test Results:</h4>
           <div className="space-y-2 max-h-60 overflow-y-auto">
             {Object.entries(testResults).map(([title, result]) => (
-              <div key={title} className={`p-2 rounded text-sm ${
-                result.accessible ? 'bg-green-100' : 'bg-red-100'
-              }`}>
+              <div
+                key={title}
+                className={`p-2 rounded text-sm ${
+                  result.accessible ? "bg-green-100" : "bg-red-100"
+                }`}
+              >
                 <div className="font-medium">{title}</div>
                 <div className="text-xs">
                   <div>URL: {result.url}</div>
-                  <div>Status: {result.status || 'Error'}</div>
+                  <div>Status: {result.status || "Error"}</div>
                   {result.contentType && <div>Type: {result.contentType}</div>}
-                  {result.error && <div className="text-red-600">Error: {result.error}</div>}
+                  {result.error && (
+                    <div className="text-red-600">Error: {result.error}</div>
+                  )}
                 </div>
               </div>
             ))}
@@ -154,9 +162,14 @@ const AudioDebugger = () => {
       )}
 
       <div className="mt-4 text-xs text-gray-600">
-        <div>Current Song: {currentSong?.song_title || 'None'}</div>
+        <div>Current Song: {currentSong?.song_title || "None"}</div>
         <div>Total Songs: {songs.length}</div>
-        <div>Current URL: {currentSong?.song_url ? `${window.location.origin}${currentSong.song_url}` : 'None'}</div>
+        <div>
+          Current URL:{" "}
+          {currentSong?.song_url
+            ? `${window.location.origin}${currentSong.song_url}`
+            : "None"}
+        </div>
       </div>
     </div>
   );

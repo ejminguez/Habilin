@@ -45,13 +45,13 @@ export const useAudioStore = create<AudioState>()(
       // Set songs and initialize first song
       setSongs: (songs) => {
         const currentState = get();
-        
+
         // If we already have songs and a current song, preserve the current state
         if (currentState.songs.length > 0 && currentState.currentSong) {
           console.log("Songs already loaded, preserving current state");
           return;
         }
-        
+
         // Otherwise, set new songs
         set({
           songs,
@@ -64,42 +64,53 @@ export const useAudioStore = create<AudioState>()(
       forceSetSongs: (songs) => {
         console.log("Force setting songs:", songs.length);
         const currentState = get();
-        
+
         // If we have a current song, try to find it in the new song list
         let newCurrentSong = null;
         let newCurrentIndex = 0;
-        
+
         if (currentState.currentSong) {
-          const foundIndex = songs.findIndex(song => 
-            song.song_id === currentState.currentSong?.song_id ||
-            song.song_url === currentState.currentSong?.song_url
+          const foundIndex = songs.findIndex(
+            (song) =>
+              song.song_id === currentState.currentSong?.song_id ||
+              song.song_url === currentState.currentSong?.song_url,
           );
-          
+
           if (foundIndex !== -1) {
             // Found the current song in the new list, preserve it
             newCurrentSong = songs[foundIndex];
             newCurrentIndex = foundIndex;
-            console.log("Preserving current song:", newCurrentSong.song_title, "at index", newCurrentIndex);
+            console.log(
+              "Preserving current song:",
+              newCurrentSong.song_title,
+              "at index",
+              newCurrentIndex,
+            );
           } else {
             // Current song not found, default to first song
             newCurrentSong = songs.length > 0 ? songs[0] : null;
             newCurrentIndex = 0;
-            console.log("Current song not found in new list, defaulting to first song");
+            console.log(
+              "Current song not found in new list, defaulting to first song",
+            );
           }
         } else {
           // No current song, default to first
           newCurrentSong = songs.length > 0 ? songs[0] : null;
           newCurrentIndex = 0;
         }
-        
+
         set({
           songs,
           currentSong: newCurrentSong,
           currentSongIndex: newCurrentIndex,
           // Preserve playing state if we found the same song
-          isPlaying: currentState.currentSong && newCurrentSong && 
-                    currentState.currentSong.song_id === newCurrentSong.song_id ? 
-                    currentState.isPlaying : false,
+          isPlaying:
+            currentState.currentSong &&
+            newCurrentSong &&
+            currentState.currentSong.song_id === newCurrentSong.song_id
+              ? currentState.isPlaying
+              : false,
         });
       },
 
@@ -107,7 +118,8 @@ export const useAudioStore = create<AudioState>()(
       setIsPlaying: (playing) => set({ isPlaying: playing }),
 
       // Set audio initialized state
-      setAudioInitialized: (initialized) => set({ audioInitialized: initialized }),
+      setAudioInitialized: (initialized) =>
+        set({ audioInitialized: initialized }),
 
       // Next song (with repeat queue and autoplay)
       nextSong: () => {
@@ -115,8 +127,10 @@ export const useAudioStore = create<AudioState>()(
         if (songs.length === 0) return;
 
         const nextIndex = (currentSongIndex + 1) % songs.length; // Loop back to 0 when reaching end
-        console.log(`Moving to next song: ${songs[nextIndex]?.song_title} (index ${nextIndex}), autoPlay: ${autoPlay}`);
-        
+        console.log(
+          `Moving to next song: ${songs[nextIndex]?.song_title} (index ${nextIndex}), autoPlay: ${autoPlay}`,
+        );
+
         set({
           currentSongIndex: nextIndex,
           currentSong: songs[nextIndex],
@@ -131,8 +145,10 @@ export const useAudioStore = create<AudioState>()(
 
         const prevIndex =
           currentSongIndex === 0 ? songs.length - 1 : currentSongIndex - 1;
-        console.log(`Moving to previous song: ${songs[prevIndex]?.song_title} (index ${prevIndex}), autoPlay: ${autoPlay}`);
-        
+        console.log(
+          `Moving to previous song: ${songs[prevIndex]?.song_title} (index ${prevIndex}), autoPlay: ${autoPlay}`,
+        );
+
         set({
           currentSongIndex: prevIndex,
           currentSong: songs[prevIndex],
@@ -143,10 +159,13 @@ export const useAudioStore = create<AudioState>()(
       // Select specific song
       selectSong: (index, autoPlay) => {
         const { songs } = get();
-        const shouldAutoPlay = autoPlay !== undefined ? autoPlay : get().autoPlay;
-        
+        const shouldAutoPlay =
+          autoPlay !== undefined ? autoPlay : get().autoPlay;
+
         if (index >= 0 && index < songs.length) {
-          console.log(`Selecting song: ${songs[index]?.song_title} (index ${index}), autoPlay: ${shouldAutoPlay}`);
+          console.log(
+            `Selecting song: ${songs[index]?.song_title} (index ${index}), autoPlay: ${shouldAutoPlay}`,
+          );
           set({
             currentSongIndex: index,
             currentSong: songs[index],
@@ -191,6 +210,6 @@ export const useAudioStore = create<AudioState>()(
         currentSongIndex: state.currentSongIndex,
         currentSong: state.currentSong,
       }),
-    }
-  )
+    },
+  ),
 );
