@@ -196,10 +196,13 @@ export const useGlobalAudioManager = () => {
       }
     } catch (error) {
       playPromiseRef.current = null;
-      if (error.name !== "AbortError") {
-        console.error("Error playing audio:", error);
-        setIsPlaying(false);
+
+      if (error instanceof DOMException && error.name === "AbortError") {
+        return; // Silently ignore AbortError
       }
+
+      console.error("Error playing audio:", error);
+      setIsPlaying(false);
     }
   };
 
@@ -237,10 +240,12 @@ export const useGlobalAudioManager = () => {
         await handlePlay();
       }
     } catch (error) {
-      if (error.name !== "AbortError") {
-        console.error("Error toggling audio playback:", error);
-        setIsPlaying(false);
+      if (error instanceof DOMException && error.name === "AbortError") {
+        return; // Ignore AbortError
       }
+
+      console.error("Error toggling audio playback:", error);
+      setIsPlaying(false);
     }
   };
 

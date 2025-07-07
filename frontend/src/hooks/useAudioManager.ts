@@ -47,8 +47,12 @@ export const useAudioManager = () => {
         setAudioInitialized(true);
       }
     },
-    onloaderror: (error) => {
-      console.error("Error loading audio:", error);
+    onloaderror: (error: unknown) => {
+      if (error instanceof Error) {
+        console.error("Error loading audio:", error.message);
+      } else {
+        console.error("Unknown error loading audio:", error);
+      }
     },
   });
 
