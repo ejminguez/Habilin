@@ -1,39 +1,44 @@
 import { Music4, Volume2, VolumeX } from "lucide-react";
 import { LucidePlay, SkipForward, SkipBack, LucidePause } from "lucide-react";
-import { useAudioStore } from "@/store/useAudioStore";
-import { useAudioManager } from "@/hooks/useAudioManager";
+import { useGlobalAudioManager } from "@/hooks/useGlobalAudioManager";
 
 const MediaPlayer = () => {
   const {
+    handleTogglePlay,
+    handleNext,
+    handlePrevious,
+    audioInitialized,
+    currentSong,
     isPlaying,
     isMuted,
-    currentSong,
-    nextSong,
-    previousSong,
     toggleMute,
-  } = useAudioStore();
+  } = useGlobalAudioManager();
 
-  const { handleTogglePlay, stopCurrentSong, audioInitialized } =
-    useAudioManager();
-
-  // Handle next song
+  // Handle next song with auto-play
   const handleNextSong = () => {
-    stopCurrentSong();
-    nextSong();
+    console.log("Next song clicked");
+    handleNext();
   };
 
-  // Handle previous song
+  // Handle previous song with auto-play
   const handlePreviousSong = () => {
-    stopCurrentSong();
-    previousSong();
+    console.log("Previous song clicked");
+    handlePrevious();
   };
 
   return (
     <section className="flex flex-col py-4">
-      <div className="flex flex-col gap-6 bg-white rounded-lg w-[80%] mx-auto p-4 shadow-lg">
+      <div className="flex flex-col gap-6 bg-transparent backdrop-blur-md rounded-lg w-[85%] mx-auto p-4 shadow-2xl">
         <div className="flex flex-col justify-center items-center">
           <div>
-            <Music4 width={150} height={150} />
+            {currentSong?.song_cover_art_url ? (
+              <img
+                src={currentSong?.song_cover_art_url}
+                className="rounded-2xl"
+              />
+            ) : (
+              <Music4 width={150} height={150} />
+            )}
           </div>
           <div>
             <div className="text-center">

@@ -2,8 +2,10 @@ import vinyl from "@/assets/pictures/vinyl.webp";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import flower3 from "@/assets/pictures/flower-3.webp";
+import { useGlobalAudioManager } from "@/hooks/useGlobalAudioManager";
 
 const MusicPlayer = () => {
+  const { currentSong } = useGlobalAudioManager();
   return (
     <section className="relative">
       <div className="flex flex-col items-center gap-5">
@@ -12,14 +14,14 @@ const MusicPlayer = () => {
             src={vinyl}
             loading="lazy"
             width="200"
-            className="animate-[spin_10s_linear_infinite] cursor-pointer hover:scale-110 transition-all duration-500"
+            className="animate-[spin_10s_linear_infinite] cursor-pointer hover:scale-110 transition-all duration-500 mx-auto"
           />
 
           <div className="text-center">
             {/* song title */}
-            <p className="text-[2.5rem] font-reenie">Stuck with U</p>
+            <p className="text-[2rem] font-reenie">{currentSong?.song_title}</p>
             {/* song artist */}
-            <p>Justin Bieber & Ariana Grande</p>
+            <p>{currentSong?.song_artist}</p>
           </div>
         </div>
 
