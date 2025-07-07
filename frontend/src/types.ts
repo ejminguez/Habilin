@@ -12,3 +12,12 @@ export interface Letter {
   sender: string;
   date_sent: string;
 }
+
+export interface Song {
+  song_id: string | number;
+  song_title: string;
+  song_artist: string;
+  song_duration: string;
+  song_url: string;
+  song_cover_art_url: string;
+}
