@@ -1,20 +1,15 @@
 import flower2 from "@/assets/pictures/flower-2.webp";
 import flower1 from "@/assets/pictures/flower-1.webp";
-import { Volume2 } from "lucide-react";
+import HeroText from "@/components/ui/HeroText";
 
 const Hero = () => {
   return (
     <section className="flex relative">
       {/* HERO SECTION */}
-      <div className="flex flex-col mx-auto w-[50%] text-center h-[40vh] items-center justify-center relative">
-        <div className="flex flex-col items-center">
-          <Volume2 width={24} height={24} />
-          <h1 className="text-[3rem]">habilin</h1>
-        </div>
-        <p className="font-reenie text-2xl">
-          a space to hold what we leave for each other
-        </p>
-      </div>
+      <HeroText
+        title="habilin"
+        subtitle="a space to hold what we leave for each other"
+      />
 
       {/* BACKGROUND FLOWERS */}
       <div>

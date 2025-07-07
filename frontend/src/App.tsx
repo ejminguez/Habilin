@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import ScrollToTopOnRouteChange from "./wrapper/ScrollToTopOnRouteChange.tsx";
-import Footer from "./components/Footer.tsx";
+import Navbar from "@/components/Navigation/Navbar.tsx";
+import ScrollToTopOnRouteChange from "@/wrapper/ScrollToTopOnRouteChange.tsx";
+import Footer from "@/components/Footer";
 
 const App = () => {
   return (
