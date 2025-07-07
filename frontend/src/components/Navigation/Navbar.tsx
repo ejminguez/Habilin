@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="bg-transparent text-white sticky top-0 z-50 h-24">
-      <img src={navbar} loading="eager" width="100%" />
+      <img src={navbar} loading="eager" className="w-full xl:w-[35%] mx-auto" />
       <div
         style={{
           backgroundImage: `url(${stamp})`,
