@@ -1,9 +1,51 @@
 import stamp from "@/assets/pictures/stamp.webp";
 import navbar from "@/assets/pictures/navbar-elements.webp";
 import { Link } from "react-router-dom";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { useRef } from "react";
+
 const Navbar = () => {
+  const navRef = useRef(null);
+
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#smooth-content",
+        start: "top top+=20",
+        end: "bottom bottom",
+        scrub: true,
+        onUpdate: (self) => {
+          if (self.direction === 1) {
+            // Scrolling down
+            gsap.to(navRef.current, {
+              y: -50,
+              duration: 0.3,
+              ease: "power2.out",
+            });
+          } else {
+            // Scrolling up
+            gsap.to(navRef.current, {
+              y: 0,
+              duration: 0.3,
+              ease: "power2.out",
+            });
+          }
+        },
+      },
+    });
+
+    return () => tl.kill();
+  }, []);
+
   return (
-    <nav className="bg-transparent text-white sticky top-0 z-50 h-24">
+    <nav
+      ref={navRef}
+      className="fixed top-0 left-0 w-full z-[9999] h-24 bg-transparent text-white transition-transform duration-300"
+    >
       <img src={navbar} loading="eager" className="w-full xl:w-[35%] mx-auto" />
       <div
         style={{

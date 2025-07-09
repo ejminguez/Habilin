@@ -4,7 +4,7 @@ import HeroText from "@/components/ui/HeroText";
 
 const Hero = () => {
   return (
-    <section className="flex relative">
+    <section className="flex relative min-h-screen items-center">
       {/* HERO SECTION */}
       <HeroText
         title="habilin"
@@ -16,14 +16,14 @@ const Hero = () => {
         <img
           src={flower2}
           loading="lazy"
-          className="absolute top-0 right-[55%] rotate-6 -z-50 scale-130"
+          className="absolute top-[20%] right-[50%] rotate-6 -z-50 scale-130"
           width={300}
           height={300}
         />
         <img
           src={flower1}
           loading="lazy"
-          className="absolute top-5 left-[60%] -rotate-20 -z-50"
+          className="absolute top-[30%] left-[65%] -rotate-20 -z-50"
           width={300}
           height={300}
         />

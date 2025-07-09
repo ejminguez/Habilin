@@ -2,7 +2,7 @@ import flower4 from "@/assets/pictures/flower-4-medium.webp";
 
 const Greetings = () => {
   return (
-    <section className="relative">
+    <section className="relative min-h-screen flex flex-col items-center">
       <div className="flex flex-col items-center text-center">
         <h1 className="font-lore text-[3rem] text-habilin-red">
           Happy Anniversary
@@ -14,7 +14,7 @@ const Greetings = () => {
       <img
         src={flower4}
         loading="lazy"
-        className="absolute top-[70%] right-[5%] animate-[spin_50s_linear_infinite]"
+        className="absolute top-[30%] right-[5%] animate-[spin_50s_linear_infinite]"
         width={50}
         height={50}
       />

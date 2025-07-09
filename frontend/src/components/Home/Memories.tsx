@@ -3,13 +3,20 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import flower3 from "@/assets/pictures/flower-3.webp";
+import { useNavigate } from "react-router-dom";
 
 const Memories = () => {
+  const navigate = useNavigate();
   return (
-    <section className="p-4 relative">
+    <section className="p-4 relative flex flex-col min-h-screen justify-center">
       <h1 className="text-[3rem]  font-reenie">alaala</h1>
 
-      <div className="max-w-sm mx-auto">
+      <div
+        className="max-w-sm mx-auto h-full w-full"
+        onClick={() => {
+          navigate("/alaala");
+        }}
+      >
         <AspectRatio ratio={1} className="relative shadow-2xl">
           {/* Image in the background */}
           <img
@@ -42,7 +49,7 @@ const Memories = () => {
       <img
         src={flower3}
         loading="lazy"
-        className="absolute top-[10%] left-[40%] scale-x-[-1] scale-120 -rotate-6"
+        className="absolute top-[10%] left-[40%] scale-x-[-1] scale-120 -rotate-6 -z-50"
       />
     </section>
   );

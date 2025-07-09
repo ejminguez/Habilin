@@ -21,3 +21,9 @@ export interface Song {
   song_url: string;
   song_cover_art_url: string;
 }
+
+export interface Image {
+  image_id: string | number;
+  image_title: string;
+  image_url: string;
+}
