@@ -9,7 +9,7 @@ const App = () => {
     <main className="flex flex-col">
       <Navbar />
       <ScrollToTopOnRouteChange />
-      <section className="top-[10vh] relative min-h-screen overflow-x-clip pb-32">
+      <section className="relative min-h-screen overflow-x-clip pb-32">
         <Outlet />
       </section>
       <Footer />
