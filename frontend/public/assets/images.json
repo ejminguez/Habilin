@@ -2,16 +2,41 @@
   {
     "image_id": 1,
     "image_title": "DYD Katorse",
-    "image_url": "/images/dyd_katorse.jpg"
+    "image_url": "/images/dyd_katorse.jpeg"
   },
   {
     "image_id": 2,
     "image_title": "1 year and 11 months",
-    "image_url": "images/june_12_2025.jpg"
+    "image_url": "images/june_12_2025.jpeg"
   },
   {
     "image_id": 3,
-    "image_title": "Flores de Mayo",
-    "image_url": "/images/flores_de_mayo.jpg"
+    "image_title": "operation ibot teeth",
+    "image_url": "/images/pa_ibot.jpeg"
+  },
+  {
+    "image_id": 4,
+    "image_title": "night laag sa val",
+    "image_url": "/images/night_val_laag.jpg"
+  },
+  {
+    "image_id": 5,
+    "image_title": "jog",
+    "image_url": "/images/jog.jpg"
+  },
+  {
+    "image_id": 6,
+    "image_title": "with jabee",
+    "image_url": "/images/with_jabee.jpg"
+  },
+  {
+    "image_id": 7,
+    "image_title": "hmm",
+    "image_url": "/images/hmm.jpg"
+  },
+  {
+    "image_id": 8,
+    "image_title": "heavens",
+    "image_url": "/images/heavens.jpg"
   }
 ]

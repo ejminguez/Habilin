@@ -35,7 +35,7 @@ const HomeBucketList = () => {
       {loading ? (
         <p>Loading ...</p>
       ) : (
-        <div className="flex w-full bg-habilin-gray h-[50vh] rounded-lg relative py-2 shadow-2xl">
+        <div className="flex w-full bg-habilin-gray h-[60vh] rounded-lg relative py-2 shadow-2xl">
           {/* White gradient overlay */}
           <div
             className="absolute bottom-0 left-0 w-full h-24 pointer-events-none rounded-b-lg backdrop-blur-[2px]"
