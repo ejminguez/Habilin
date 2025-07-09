@@ -4,7 +4,7 @@ import Queue from "@/components/Playlist/Queue";
 
 const Playlist = () => {
   return (
-    <section className="relative">
+    <section className="relative top-[20vh]">
       <HeroText
         title="himig"
         subtitle="the songs that speak when words fall short"

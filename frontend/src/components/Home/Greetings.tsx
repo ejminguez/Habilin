@@ -2,7 +2,7 @@ import flower4 from "@/assets/pictures/flower-4-medium.webp";
 
 const Greetings = () => {
   return (
-    <section className="relative min-h-[500px] flex flex-col items-center">
+    <section className="relative min-h-screen flex flex-col items-center">
       <div className="flex flex-col items-center text-center">
         <h1 className="font-lore text-[3rem] text-habilin-red">
           Happy Anniversary

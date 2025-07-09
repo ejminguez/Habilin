@@ -30,7 +30,7 @@ const HomeBucketList = () => {
     fetchList();
   }, []);
   return (
-    <section className="flex flex-col w-full min-h-[500px] justify-center">
+    <section className="flex flex-col w-full min-h-screen justify-center">
       <h1 className="text-[3rem] font-reenie text-right">pangarap</h1>
       {loading ? (
         <p>Loading ...</p>

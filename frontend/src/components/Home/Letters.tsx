@@ -33,15 +33,15 @@ const Letters = () => {
   }, []);
 
   return (
-    <section className="flex flex-col w-full h-full min-h-[500px] justify-center">
+    <section className="flex flex-col w-full h-full min-h-screen justify-center">
       <h1 className="text-[3rem] font-reenie">liham</h1>
       {loading ? (
-        <div className="flex items-center justify-center h-[50vh]">
+        <div className="flex items-center justify-center h-[60vh]">
           <p>Writing letters...</p>
         </div>
       ) : (
         <div
-          className="h-[50vh] w-full rounded-2xl shadow-2xl px-2 overflow-y-hidden relative"
+          className="h-[60vh] w-full rounded-2xl shadow-2xl px-2 overflow-y-hidden relative"
           style={{
             backgroundImage: `url(${paperTexture})`,
             backgroundPosition: "center",

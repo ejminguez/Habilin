@@ -6,7 +6,7 @@ import flower3 from "@/assets/pictures/flower-3.webp";
 
 const Memories = () => {
   return (
-    <section className="p-4 relative flex flex-col min-h-[500px] justify-center">
+    <section className="p-4 relative flex flex-col min-h-screen justify-center">
       <h1 className="text-[3rem]  font-reenie">alaala</h1>
 
       <div className="max-w-sm mx-auto h-full w-full">
