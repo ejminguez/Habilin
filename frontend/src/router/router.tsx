@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import App from "@/App.tsx";
 import ErrorNotFound from "@/pages/ErrorNotFound.tsx";
+import flower4 from "@/assets/pictures/flower-4-medium.webp";
 
 // Lazy load page components
 const Home = lazy(() => import("@/pages/Home.tsx"));
@@ -13,7 +14,7 @@ const Pangarap = lazy(() => import("@/pages/Pangarap"));
 // Loading component
 const PageLoader = () => (
   <div className="flex items-center justify-center min-h-screen">
-    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+    <img src={flower4} width={80} height={80} className="animate-spin" />
   </div>
 );
 

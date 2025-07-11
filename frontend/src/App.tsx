@@ -22,7 +22,6 @@ const App = () => {
   }, []);
 
   useGSAP(() => {
-    // Only load ScrollSmoother on desktop for better performance
     if (!isMobile) {
       import("gsap/ScrollSmoother").then(({ ScrollSmoother }) => {
         import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
@@ -31,9 +30,9 @@ const App = () => {
           ScrollSmoother.create({
             wrapper: "#smooth-wrapper",
             content: "#smooth-content",
-            smooth: 1.5, // Reduced from 2 for better performance
+            smooth: 1.5,
             effects: true,
-            smoothTouch: 0.1, // Reduced for mobile performance
+            smoothTouch: 0.1,
           });
         });
       });

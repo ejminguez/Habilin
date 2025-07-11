@@ -16,9 +16,9 @@ const Hero = () => {
         <img
           src={flower2}
           loading="lazy"
-          className="absolute top-[25%] right-[50%] rotate-6 -z-50 scale-150"
-          width={300}
-          height={300}
+          className="absolute top-[25%] right-[50%] rotate-6 -z-50"
+          width={700}
+          height={700}
         />
         <img
           src={flower1}

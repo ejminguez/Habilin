@@ -12,7 +12,6 @@ const Home = () => {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-    // Create ScrollSmoother
     ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",

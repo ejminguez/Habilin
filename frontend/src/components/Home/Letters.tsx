@@ -33,7 +33,7 @@ const Letters = () => {
   }, []);
 
   return (
-    <section className="flex flex-col w-full h-full min-h-screen justify-center">
+    <section className="flex flex-col w-full justify-center">
       <h1 className="text-[3rem] font-reenie">liham</h1>
       {loading ? (
         <div className="flex items-center justify-center h-[60vh]">
