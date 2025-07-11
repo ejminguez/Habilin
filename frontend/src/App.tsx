@@ -24,11 +24,11 @@ const App = () => {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <ScrollToTopOnRouteChange />
-          <main className="flex flex-col min-h-screen">
-            <section className="relative min-h-screen overflow-x-clip">
+          <div className="flex flex-col min-h-screen">
+            <div className="relative min-h-screen overflow-x-clip">
               <Outlet />
-            </section>
-          </main>
+            </div>
+          </div>
         </div>
       </div>
       <GlobalMediaPlayer />
