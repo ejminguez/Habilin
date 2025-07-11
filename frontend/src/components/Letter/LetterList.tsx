@@ -101,7 +101,12 @@ const LetterList = () => {
                   <div className="grid gap-4 font-reenie text-[1.5rem] ">
                     <h4 className="text-right">{letter.date_sent}</h4>
                     <h3>dear {letter.recipient}</h3>
-                    <p className="text-center">{letter.letter_content}</p>
+                    <div className="text-center font-urbanist space-y-4 text-sm">
+                      {letter.letter_content.split("\n\n").map((p, i) => (
+                        <p key={i}>{p}</p>
+                      ))}
+                    </div>
+
                     <div className="text-right">
                       <p>yours truly,</p>
                       <h3>{letter.sender}</h3>

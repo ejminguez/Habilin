@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
-import type { List } from "@/types";
+import type { Dream } from "@/types";
 
 const HomeBucketList = () => {
   const [loading, setLoading] = useState(false);
-  const [list, setList] = useState<List[]>([]);
+  const [list, setList] = useState<Dream[]>([]);
 
   const fetchList = async () => {
     setLoading(true);
@@ -15,7 +15,6 @@ const HomeBucketList = () => {
         console.log("Error getting response.");
       }
       const json = await res.json();
-      console.log(json);
       setList(json);
     } catch (error) {
       console.log("Error fetching data: ", error);
@@ -29,6 +28,13 @@ const HomeBucketList = () => {
   useEffect(() => {
     fetchList();
   }, []);
+  const toggleDreamStatus = (index: number) => {
+    setList((prevList) =>
+      prevList.map((item, i) =>
+        i === index ? { ...item, dream_status: !item.dream_status } : item,
+      ),
+    );
+  };
   return (
     <section className="flex flex-col w-full  justify-center">
       <h1 className="text-[3rem] font-reenie text-right">pangarap</h1>
@@ -55,13 +61,23 @@ const HomeBucketList = () => {
 
           <ul className="flex flex-col gap-4 w-full overflow-y-scroll py-6">
             {list.length > 0 ? (
-              list.map((item) => (
+              list.map((item, index) => (
                 <li
-                  key={item.task_id}
-                  className="flex items-center gap-4 rounded-lg bg-gray-50 py-2 px-6 w-[80%] mx-auto shadow-xl"
+                  key={index}
+                  className="flex items-center gap-4 rounded-lg bg-gray-50 py-2 px-6 w-[95%] mx-auto shadow-xl"
                 >
-                  <input type="checkbox" />
-                  <p className="font-reenie text-[1.5rem]">{item.task}</p>
+                  <input
+                    type="checkbox"
+                    checked={item.dream_status}
+                    onChange={() => toggleDreamStatus(index)}
+                  />
+                  <p
+                    className={`font-reenie text-[1.5rem] ${
+                      item.dream_status ? "line-through text-gray-400" : ""
+                    }`}
+                  >
+                    {item.dream_description}
+                  </p>
                 </li>
               ))
             ) : (

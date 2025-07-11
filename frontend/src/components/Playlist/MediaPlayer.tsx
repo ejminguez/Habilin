@@ -28,7 +28,7 @@ const MediaPlayer = () => {
 
   return (
     <section className="flex flex-col py-4">
-      <div className="flex flex-col gap-6 bg-transparent backdrop-blur-md rounded-lg w-[85%] mx-auto p-4 shadow-2xl">
+      <div className="flex flex-col gap-6 bg-transparent backdrop-blur-md rounded-lg w-[85%] lg:w-[50%] xl:w-[30%] mx-auto p-4 shadow-2xl">
         <div className="flex flex-col justify-center items-center">
           <div>
             {currentSong?.song_cover_art_url ? (
