@@ -1,23 +1,45 @@
 import { Outlet } from "react-router-dom";
+import { lazy, Suspense, useEffect, useState } from "react";
 import Navbar from "@/components/Navigation/Navbar.tsx";
 import ScrollToTopOnRouteChange from "@/wrapper/ScrollToTopOnRouteChange.tsx";
-import GlobalMediaPlayer from "@/components/GlobalMediaPlayer";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollSmoother, ScrollTrigger } from "gsap/all";
+
+// Lazy load heavy components
+const GlobalMediaPlayer = lazy(() => import("@/components/GlobalMediaPlayer"));
 
 const App = () => {
-  useGSAP(() => {
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+  const [isMobile, setIsMobile] = useState(false);
 
-    ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 2,
-      effects: true,
-      smoothTouch: 1,
-    });
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  useGSAP(() => {
+    // Only load ScrollSmoother on desktop for better performance
+    if (!isMobile) {
+      import('gsap/ScrollSmoother').then(({ ScrollSmoother }) => {
+        import('gsap/ScrollTrigger').then(({ ScrollTrigger }) => {
+          gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+          ScrollSmoother.create({
+            wrapper: "#smooth-wrapper",
+            content: "#smooth-content",
+            smooth: 1.5, // Reduced from 2 for better performance
+            effects: true,
+            smoothTouch: 0.1, // Reduced for mobile performance
+          });
+        });
+      });
+    }
+  }, [isMobile]);
+
   return (
     <main className="relative">
       <Navbar />
@@ -31,7 +53,9 @@ const App = () => {
           </div>
         </div>
       </div>
-      <GlobalMediaPlayer />
+      <Suspense fallback={<div />}>
+        <GlobalMediaPlayer />
+      </Suspense>
     </main>
   );
 };
