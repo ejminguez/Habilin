@@ -59,12 +59,7 @@
 }
 
 body {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-color: #cbe87b;
-  background-image: url(http://www.transparenttextures.com/patterns/textured-paper.png);
+  background-color: #c1e1c1;
 }
 
 @theme inline {

@@ -7,7 +7,7 @@ import { useGlobalAudioManager } from "@/hooks/useGlobalAudioManager";
 const MusicPlayer = () => {
   const { currentSong } = useGlobalAudioManager();
   return (
-    <section className="relative flex flex-col min-h-screen justify-center">
+    <section className="relative flex flex-col justify-center">
       <div className="flex flex-col items-center gap-5">
         <div>
           <img

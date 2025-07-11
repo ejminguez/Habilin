@@ -45,7 +45,7 @@ const LetterList = () => {
 
         console.log("Found cards:", cards.length); // Debug log
 
-        cards.forEach((card, index) => {
+        cards.forEach((card) => {
           gsap.fromTo(
             card,
             { opacity: 0, y: 50 },
@@ -59,15 +59,11 @@ const LetterList = () => {
                 start: "top 85%",
                 end: "bottom 15%",
                 toggleActions: "play reverse play reverse",
-                // markers: true, // enable this for scroll debug
-                onEnter: () => console.log(`Card ${index} entered`), // Debug log
-                onLeave: () => console.log(`Card ${index} left`), // Debug log
               },
             },
           );
         });
 
-        // Refresh ScrollTrigger to recalculate positions
         ScrollTrigger.refresh();
       }, containerRef);
 

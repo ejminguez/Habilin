@@ -32,8 +32,8 @@ const Greetings = () => {
     loopTyping();
   }, []);
   return (
-    <section className="relative min-h-screen flex flex-col items-center">
-      <div className="flex flex-col items-center text-center">
+    <section className="relative min-h-[300px] flex flex-col justify-center">
+      <div className="flex flex-col text-center">
         <h1 className="font-lore text-[3rem] text-habilin-red">
           <span ref={typewriterRef} />
         </h1>
@@ -44,14 +44,14 @@ const Greetings = () => {
       <img
         src={flower4}
         loading="lazy"
-        className="absolute top-[30%] -right-[30%] animate-[spin_50s_linear_infinite]"
+        className="absolute top-[65%] -right-[30%]"
         width={150}
         height={150}
       />
       <img
         src={flower4}
         loading="lazy"
-        className="absolute -top-[30%] -left-[25%] animate-[spin_20s_linear_infinite]"
+        className="absolute -top-[50%] -left-[25%]"
         width={200}
         height={200}
       />
