@@ -13,19 +13,19 @@ const App = () => {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
+      setIsMobile(window.innerWidth < 768 || "ontouchstart" in window);
     };
-    
+
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   useGSAP(() => {
     // Only load ScrollSmoother on desktop for better performance
     if (!isMobile) {
-      import('gsap/ScrollSmoother').then(({ ScrollSmoother }) => {
-        import('gsap/ScrollTrigger').then(({ ScrollTrigger }) => {
+      import("gsap/ScrollSmoother").then(({ ScrollSmoother }) => {
+        import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
           gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
           ScrollSmoother.create({

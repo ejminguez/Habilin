@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from "react";
 
 interface LazyImageProps {
   src: string;
@@ -20,7 +20,7 @@ const LazyImage = ({ src, alt, className, placeholder }: LazyImageProps) => {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (imgRef.current) {
@@ -40,7 +40,7 @@ const LazyImage = ({ src, alt, className, placeholder }: LazyImageProps) => {
         src={isInView ? src : placeholder}
         alt={alt}
         className={`transition-opacity duration-300 ${
-          isLoaded ? 'opacity-100' : 'opacity-0'
+          isLoaded ? "opacity-100" : "opacity-0"
         } ${className}`}
         onLoad={() => setIsLoaded(true)}
         loading="lazy"
