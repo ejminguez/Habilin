@@ -1,37 +1,37 @@
 [
   {
-    "task_id": 1,
-    "task": "watch concert together",
-    "status": "PENDING"
+    "dream_id": 1,
+    "dream_description": "watch concert together",
+    "dream_status": false
   },
   {
-    "task_id": 2,
-    "task": "paint outside",
-    "status": "PENDING"
+    "dream_id": 2,
+    "dream_description": "paint outside",
+    "dream_status": false
   },
   {
-    "task_id": 3,
-    "task": "unli wings HAHHAHA",
-    "status": "PENDING"
+    "dream_id": 3,
+    "dream_description": "unli wings HAHHAHA",
+    "dream_status": false
   },
   {
-    "task_id": 4,
-    "task": "save money >>>>",
-    "status": "PENDING"
+    "dream_id": 4,
+    "dream_description": "save money >>>>",
+    "dream_status": false
   },
   {
-    "task_id": 5,
-    "task": "cook together",
-    "status": "PENDING"
+    "dream_id": 5,
+    "dream_description": "cook together",
+    "dream_status": false
   },
   {
-    "task_id": 6,
-    "task": "go camping",
-    "status": "PENDING"
+    "dream_id": 6,
+    "dream_description": "go camping",
+    "dream_status": false
   },
   {
-    "task_id": 7,
-    "task": "celebrate anniv together",
-    "status": "PENDING"
+    "dream_id": 7,
+    "dream_description": "celebrate anniv together",
+    "dream_status": true
   }
 ]

@@ -27,3 +27,9 @@ export interface Image {
   image_title: string;
   image_url: string;
 }
+
+export interface Dream {
+  dream_id: string | number;
+  dream_description: string;
+  dream_status: boolean;
+}
