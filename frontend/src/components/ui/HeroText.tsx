@@ -24,7 +24,7 @@ const HeroText = ({ className, title, subtitle }: HeroTextProps) => {
         </button>
         <h1 className="text-[3rem]">{title}</h1>
       </div>
-      <p className="font-reenie text-2xl">{subtitle}</p>
+      <h2 className="font-reenie text-2xl">{subtitle}</h2>
     </div>
   );
 };

@@ -1,7 +1,14 @@
+import HeroText from "@/components/ui/HeroText";
+import LetterList from "@/components/Letter/LetterList";
+
 const Letters = () => {
   return (
-    <section>
-      <h1>liham</h1>
+    <section className="relative top-[20vh] mb-20 flex flex-col">
+      <HeroText
+        title="liham"
+        subtitle="words we’ve left behind, written, and tucked between the pages of memory"
+      />
+      <LetterList />
     </section>
   );
 };
