@@ -1,0 +1,42 @@
+[
+  {
+    "song_id": "1",
+    "song_title": "this is how you fall in love",
+    "song_artist": "Jeremy Zucker and Chelsea Cutler",
+    "song_duration": "2:58",
+    "song_url": "/songs/this-is-how-you-fall-in-love.mp3",
+    "song_cover_art_url": "/covers/this-is-how-you-fall-in-love.webp"
+  },
+  {
+    "song_id": "2",
+    "song_title": "Tahanan",
+    "song_artist": "Adie",
+    "song_duration": "4:02",
+    "song_url": "/songs/tahanan.mp3",
+    "song_cover_art_url": "/covers/tahanan.webp"
+  },
+  {
+    "song_id": "3",
+    "song_title": "Stuck with U",
+    "song_artist": "Justin Bieber & Ariana Grande",
+    "song_duration": "3:48",
+    "song_url": "/songs/stuck-with-u.mp3",
+    "song_cover_art_url": "/covers/stuck-with-u.webp"
+  },
+  {
+    "song_id": "4",
+    "song_title": "Mine",
+    "song_artist": "Taylor Swift",
+    "song_duration": "3:51",
+    "song_url": "/songs/mine.mp3",
+    "song_cover_art_url": "/covers/mine.webp"
+  },
+  {
+    "song_id": "5",
+    "song_title": "The Most Beautiful Thing",
+    "song_artist": "Bruno Major",
+    "song_duration": "3:55",
+    "song_url": "/songs/the-most-beautiful-thing.mp3",
+    "song_cover_art_url": "/covers/the-most-beautiful-thing.webp"
+  }
+]

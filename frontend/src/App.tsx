@@ -1,17 +1,59 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import ScrollToTopOnRouteChange from "./wrapper/ScrollToTopOnRouteChange.tsx";
-import Footer from "./components/Footer.tsx";
+import { lazy, Suspense, useEffect, useState } from "react";
+import Navbar from "@/components/Navigation/Navbar.tsx";
+import ScrollToTopOnRouteChange from "@/wrapper/ScrollToTopOnRouteChange.tsx";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
+const GlobalMediaPlayer = lazy(() => import("@/components/GlobalMediaPlayer"));
 
 const App = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || "ontouchstart" in window);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useGSAP(() => {
+    if (!isMobile) {
+      import("gsap/ScrollSmoother").then(({ ScrollSmoother }) => {
+        import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
+          gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+          ScrollSmoother.create({
+            wrapper: "#smooth-wrapper",
+            content: "#smooth-content",
+            smooth: 1.5,
+            effects: true,
+            smoothTouch: 0.1,
+          });
+        });
+      });
+    }
+  }, [isMobile]);
+
   return (
-    <main className="flex flex-col">
+    <main className="relative">
       <Navbar />
-      <ScrollToTopOnRouteChange />
-      <section className="top-[10vh] relative min-h-screen overflow-x-clip">
-        <Outlet />
-      </section>
-      <Footer />
+      <div id="smooth-wrapper">
+        <div id="smooth-content">
+          <ScrollToTopOnRouteChange />
+          <div className="flex flex-col min-h-screen">
+            <div className="relative min-h-screen overflow-x-clip">
+              <Outlet />
+            </div>
+          </div>
+        </div>
+      </div>
+      <Suspense fallback={<div />}>
+        <GlobalMediaPlayer />
+      </Suspense>
     </main>
   );
 };
