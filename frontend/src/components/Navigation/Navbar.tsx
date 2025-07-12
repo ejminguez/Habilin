@@ -8,43 +8,33 @@ import { useRef } from "react";
 
 const Navbar = () => {
   const navRef = useRef(null);
+  const lastDir = useRef<number | null>(null);
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#smooth-content",
-        start: "top top+=20",
-        end: "bottom bottom",
-        scrub: true,
-        onUpdate: (self) => {
-          if (self.direction === 1) {
-            // Scrolling down
-            gsap.to(navRef.current, {
-              y: -50,
-              duration: 0.3,
-              ease: "power2.out",
-            });
-          } else {
-            // Scrolling up
-            gsap.to(navRef.current, {
-              y: 0,
-              duration: 0.3,
-              ease: "power2.out",
-            });
-          }
-        },
+    ScrollTrigger.create({
+      trigger: "#smooth-content",
+      start: "top top+=20",
+      end: "bottom bottom",
+      scrub: true,
+      onUpdate: (self) => {
+        if (self.direction !== lastDir.current) {
+          lastDir.current = self.direction;
+          gsap.to(navRef.current, {
+            y: self.direction === 1 ? -50 : 0,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        }
       },
     });
-
-    return () => tl.kill();
   }, []);
 
   return (
     <nav
       ref={navRef}
-      className="fixed top-0 left-0 w-full z-[9999] h-24 bg-transparent text-white transition-transform duration-300"
+      className="fixed top-0 left-0 w-full z-[9999] h-24 bg-transparent text-white transition-transform duration-300 will-change-transform"
     >
       <img src={navbar} loading="eager" className="w-full xl:w-[35%] mx-auto" />
       <div
