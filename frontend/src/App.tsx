@@ -5,7 +5,6 @@ import ScrollToTopOnRouteChange from "@/wrapper/ScrollToTopOnRouteChange.tsx";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-// Lazy load heavy components
 const GlobalMediaPlayer = lazy(() => import("@/components/GlobalMediaPlayer"));
 
 const App = () => {
